@@ -40,6 +40,8 @@ header p {
 
 a {
     text-transform: uppercase;
+    outline: none;
+    border: none;
 }
 
 .menu {
