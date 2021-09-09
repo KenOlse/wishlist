@@ -32,7 +32,7 @@
                 <a class='nav-link dropdown-toggle' href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile</a>
                 <div class="dropdown-menu">
                     <a href="{% url 'users:profile' %}" class="dropdown-item">My wish</a>
-                    <a href="" class="dropdown-item">Change data</a>
+                    <a href="" class="dropdown-item">Change User Info</a>
                     <a href="{% url 'users:password_change' %}" class="dropdown-item">Recover password</a>
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item">Delete Account</a>
@@ -43,7 +43,7 @@
             <li class="nav-item">
                 <a href="{% url 'users:login' %}" class="nav-link">LogIn</a>
             </li>
-            <li class="nav-item"><a href="" class="nav-link">Registration</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Registration</a></li>
             {% endif %}
         </ul>
     </div>
