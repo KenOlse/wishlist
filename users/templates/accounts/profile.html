@@ -1,0 +1,13 @@
+{% extends "layout/base.html" %}
+{% block title %}
+Profile
+{% endblock title %}
+{% block content %}
+<h2>User's Profile</h2>
+{% if user.first_name and user.last_name %}
+<h3>Welcome, {{ user.first_name }} {{ user.last_name }}</h3>
+{% else %}
+<h3>Welcome!!! {{ user.username.title }}</h3>
+{% endif %}
+<h4>Your Wish is here</h4>
+{% endblock content %}

@@ -5,19 +5,19 @@
     text-decoration: none;
 }
 
-.container {
+body {
     background: url(../images/beach.jpg) no-repeat center;
     background-size: cover;
     height: 100vh;
 }
 
-.header {
+header {
     width: 90%;
     margin: auto;
     padding-top: 20px;
 }
 
-.header h2 {
+header h1 {
     font: 5em Tahoma;
     font-weight: bold;
     text-transform: uppercase;
@@ -26,7 +26,7 @@
     text-align: center;
 }
 
-.header p {
+header p {
     font-family: Tahoma;
     font-size: 18px;
     text-transform: uppercase;
@@ -44,17 +44,21 @@ a {
 
 .menu {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    //width: 90%;
 }
 
 .menu a {
     display: block;
-    margin: 10px 35px;
-    padding: 0px 50px;
-    color: darkred;
-    text-shadow: 1px 1px 5px darkcyan;
-    font-size: 20px;
+    //margin: 10px 20px;    padding: 0px 50px;
+    color: #f1f1f1;
+    text-shadow: 1px 1px 5px #333;
+    font-size: 18px;
+}
+
+.menu li:nth-child(2) {
+    margin-right: auto;
 }
 
 .content {
@@ -67,4 +71,12 @@ a {
 
 .content p {
     padding-top: 10px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    right: 0;
 }

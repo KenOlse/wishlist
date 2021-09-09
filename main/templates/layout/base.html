@@ -1,35 +1,56 @@
 {% load static %}
+{% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Block - {% block title %}
-        {% endblock title %}</title>
+    {% bootstrap_javascript jquery='slim' %}
+    <title>
+        Block - {% block title %}
+        {% endblock title %}
+    </title>
 </head>
 
-<body>
-    <div class="container">
-        <div class="header">
-            <div class="header-top">
-                <h2>Wishlist</h2>
-                <p>Do you want to come here? make a wish and act</p>
-            </div>
-            <div class="topnav">
-                <ul class="menu">
-                    <li><a href="{% url 'main:index' %}">Home</a></li>
-                    <li><a href="{% url 'main:other' page='about' %}">About</a></li>
-                </ul>
-            </div>
-        </div>
-        <hr>
-        <div class="content">
-            {% block content %}
-            {% endblock content %}
-        </div>
+<body class="container">
+    <header class="mb-4">
+        <h1>Wishlist</h1>
+        <p>Do you want to go to this place? Wish and go</p>
+    </header>
+    <div class="row">
+        <ul class="col nav justify-content-center menu">
+            <li class="nav-item"><a href="{% url 'main:index' %}" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="{% url 'main:other' page='about' %}" class="nav-link">About</a></li>
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+                <a class='nav-link dropdown-toggle' href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile</a>
+                <div class="dropdown-menu">
+                    <a href="{% url 'users:profile' %}" class="dropdown-item">My wish</a>
+                    <a href="" class="dropdown-item">Change data</a>
+                    <a href="" class="dropdown-item">Recover password</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">Delete Account</a>
+                </div>
+            </li>
+            <li> <a href="{% url 'users:logout' %}" class="nav-link">LogOut</a></li>
+            {% else %}
+            <li class="nav-item">
+                <a href="{% url 'users:login' %}" class="nav-link">LogIn</a>
+            </li>
+            <li class="nav-item"><a href="" class="nav-link">Registration</a></li>
+            {% endif %}
+        </ul>
     </div>
+    <div class="content">
+        {% block content %}
+        {% endblock content %}
+    </div>
+    <footer class="mt-3">
+        <p class="text-right font-italic mr-3"> All Rights Reserved &copy;Pyshko.</p>
+    </footer>
 </body>
 
 </html>
