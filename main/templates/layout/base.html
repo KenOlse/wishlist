@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Block - {% block title %}
+        {% endblock title %}</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-top">
+                <h2>Wishlist</h2>
+                <p>Do you want to come here? make a wish and act</p>
+            </div>
+            <div class="topnav">
+                <ul class="menu">
+                    <li><a href="{% url 'main:index' %}">Home</a></li>
+                    <li><a href="{% url 'main:other' page='about' %}">About</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="content">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
+</body>
+
+</html>
