@@ -1,3 +1,4 @@
 login: admin
 password: admin
 Good Luck!!!
+Если смените пароль? Не забудьте внести изменения!!!

@@ -4,15 +4,15 @@
 Log In
 {% endblock title %}
 {% block content %}
-<h2>Вхід</h2>
+<h2>Hi, There</h2>
 {% if user.is_authenticated %}
-<p>Ви вже увійшли до системи</p>
+<p>You are already logged in</p>
 {% else %}
 <form method='post'>
     {% csrf_token %}
     {% bootstrap_form form layout='horizontal' %}
     <input type="hidden" name="next" value="{{ next }}">
-    {% buttons submit='Увійти'%}{% endbuttons %}
+    {% buttons submit='Submit'%}{% endbuttons %}
 </form>
 {% endif %}
 {% endblock content %}
