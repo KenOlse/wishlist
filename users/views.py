@@ -52,7 +52,6 @@ class DeleteUserView(DeleteView):
 
     def dispatch(self, request, *args, **kwargs):
         self.user_id = request.user.pk
-        print(self.user_id)
         return super().dispatch(request, *args, **kwargs)
 
 
