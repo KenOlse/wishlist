@@ -1,11 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth import logout
 from django.views.generic.base import TemplateView
+from django.views.generic.edit import DeleteView
 from django.views.generic import CreateView
 
 from .models import AdvUser
@@ -40,3 +42,25 @@ class RegisterUserView(CreateView):
 
 class RegisterDoneView(TemplateView):
     template_name = 'accounts/register_done.html'
+
+
+class DeleteUserView(DeleteView):
+    model = AdvUser
+    template_name = 'accounts/delete_user.html'
+    success_url = reverse_lazy('main:index')
+
+
+    def dispatch(self, request, *args, **kwargs):
+        self.user_id = request.user.pk
+        print(self.user_id)
+        return super().dispatch(request, *args, **kwargs)
+
+
+    def post(self, request, *args, **kwargs):
+        logout(request)
+        return super().post(request, *args, **kwargs)
+
+    def get_object(self, queryset=None):
+        if not queryset:
+            queryset = self.get_queryset
+        return get_object_or_404(AdvUser, pk=self.user_id)

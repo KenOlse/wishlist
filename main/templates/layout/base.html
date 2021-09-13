@@ -35,7 +35,7 @@
                     <a href="" class="dropdown-item">Change User Info</a>
                     <a href="{% url 'users:password_change' %}" class="dropdown-item">Recover password</a>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">Delete Account</a>
+                    <a href="{% url 'users:profile_delete' %}" class="dropdown-item">Delete Account</a>
                 </div>
             </li>
             <li> <a href="{% url 'users:logout' %}" class="nav-link">LogOut</a></li>

@@ -1,9 +1,12 @@
 from django.urls import path
 from .views import WishlistLoginView, WishlistLogoutView, WishlistPasswordChangeView
 from .views import profile, RegisterUserView, RegisterDoneView
+from .views import DeleteUserView
 
 app_name = 'users'
 urlpatterns = [
+    path('accounts/profile/delete/',
+         DeleteUserView.as_view(), name='profile_delete'),
     path('accounts/register/done', RegisterDoneView.as_view(),
          name='register_done'),
     path('accounts/register/', RegisterUserView.as_view(), name='register_user'),
