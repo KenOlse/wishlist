@@ -3,7 +3,6 @@ from django.http import HttpResponse, Http404
 from django.template import TemplateDoesNotExist
 from django.template.loader import get_template
 
-
 def index(request):
 	return render(request, 'main/index.html')
 
