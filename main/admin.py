@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 
-from .models import Product
+from .models import Product, WishListUser
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -14,3 +14,13 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Product, ProductAdmin)
+
+
+class WishListUserAdmin(admin.ModelAdmin):
+    '''
+        Admin View for WishList
+    '''
+    list_display = ('id', 'owner', 'is_hidden',)
+
+
+admin.site.register(WishListUser, WishListUserAdmin)

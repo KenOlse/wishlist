@@ -1,0 +1,9 @@
+{% extends "layout/base.html" %}
+{% block title %}
+Wishlist
+{% endblock title %}
+{% block content %}
+{% for wishlist in wishlists %}
+<h2><a href="{% url 'main:wishlist_list' wishlist.pk %}">{{ wishlist }}</a></h2>
+{% endfor %}
+{% endblock content %}

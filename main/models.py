@@ -1,5 +1,6 @@
 from django.db import models
 
+from users.models import AdvUser
 
 class Product(models.Model):
     title = models.CharField('Продукт', max_length=50)
@@ -15,3 +16,14 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукти'
+
+
+
+class WishListUser(models.Model):
+    title = models.CharField('Title', max_length=120)
+    owner = models.ForeignKey(AdvUser, on_delete=models.CASCADE, related_name='owner')
+    product_user = models.ManyToManyField(Product, related_name='product')
+    is_hidden = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.title
