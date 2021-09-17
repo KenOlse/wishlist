@@ -27,7 +27,7 @@ class WishlistLogoutView(LoginRequiredMixin, LogoutView):
     template_name = 'accounts/logout.html'
 
 
-class WishlistPasswordChangeView(SuccessMessageMixin, LoginRequiredMixin, PasswordChangeView):
+class WishlistPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     template_name = 'accounts/password_change.html'
     success_url = reverse_lazy('users:profile')
     success_message = 'The Password is changed'

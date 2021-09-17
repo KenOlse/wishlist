@@ -35,18 +35,17 @@ class WishlistTemplateView(TemplateView):
 
 
 class WishListView(ListView):
-    model = WishListUser
     template_name = 'main/wishlist_list.html'
     content_object_name = 'wishlists'
 
     def get_queryset(self):
-        return Product.objects.filter(pk=self.kwargs['product_id'])
+        return Product.objects.filter(id=self.kwargs['product_id'])
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['wishlists'] = WishListUser.objects.all()
         context['current_wishlist'] = WishListUser.objects.get(
-            pk=self.kwargs['product_id'])
+            id=self.kwargs['product_id'])
         return context
 
 
