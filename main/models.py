@@ -21,7 +21,7 @@ class Product(models.Model):
 
 class WishListUser(models.Model):
     title = models.CharField('Title', max_length=120)
-    owner = models.ForeignKey(AdvUser, on_delete=models.CASCADE)
+    owner = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='owner')
     product_user = models.ManyToManyField(Product)
     is_hidden = models.BooleanField(default=True)
 
