@@ -21,13 +21,13 @@
 <body class="container">
     <header class="mb-4">
         <h1>Wishlist</h1>
-        <p>Do you want to go to this place? Wish and go</p>
+        <p>Do you want to go to this place? Make a Wish And Act</p>
     </header>
     <div class="row">
         <ul class="col nav justify-content-center menu">
             <li class="nav-item"><a href="{% url 'main:index' %}" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="{% url 'main:other' page='about' %}" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Wishlist</a></li>
+            <li class="nav-item"><a href="{% url 'main:owner' %}" class="nav-link">Wishlist</a></li>
             {% if user.is_authenticated %}
             <li class="nav-item dropdown">
                 <a class='nav-link dropdown-toggle' href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile</a>

@@ -9,6 +9,7 @@ from django.views.generic.detail import DetailView
 
 
 from .models import Product, WishListUser
+from users.models import AdvUser
 
 
 def index(request):
@@ -21,3 +22,8 @@ def other_page(request, page):
     except TemplateDoesNotExist:
         raise Http404
     return HttpResponse(template.render(request=request))
+
+
+class UserList(ListView):
+    model = AdvUser
+    context_object_name = 'users_owners'

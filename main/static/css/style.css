@@ -40,8 +40,10 @@ header p {
 
 a {
     text-transform: uppercase;
-    outline: none;
-    border: none;
+    text-decoration: none;
+    color: #f1f1f1;
+    text-shadow: 1px 1px 5px #333;
+    font-size: 18px;
 }
 
 .menu {
@@ -58,6 +60,7 @@ a {
     color: #f1f1f1;
     text-shadow: 1px 1px 5px #333;
     font-size: 18px;
+
 }
 
 .menu li:nth-child(3) {

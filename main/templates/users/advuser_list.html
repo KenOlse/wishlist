@@ -1,9 +1,10 @@
 {% extends "layout/base.html" %}
 {% block title %}
-Wishlist
+Owner List
 {% endblock title %}
 {% block content %}
-{% for wishlist in wishlists %}
-<h2><a href="{% url 'main:wishlist_list' wishlist.pk %}">{{ wishlist }}</a></h2>
+<h2>Wish list owner</h2>
+{% for user_owner in users_owners %}
+<p><a href="">{{ user_owner }}</a></p>
 {% endfor %}
 {% endblock content %}
