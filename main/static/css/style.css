@@ -46,6 +46,12 @@ a {
     font-size: 18px;
 }
 
+.current {
+    font: 1.5rem Tahoma;
+    color: #f1f1f1;
+    text-transform: uppercase;
+}
+
 .menu {
     display: flex;
     justify-content: space-between;
