@@ -2,6 +2,7 @@ from django.db import models
 
 from users.models import AdvUser
 
+
 class Product(models.Model):
     title = models.CharField('Продукт', max_length=50)
     link = models.URLField(
@@ -18,12 +19,16 @@ class Product(models.Model):
         verbose_name_plural = 'Продукти'
 
 
-
 class WishListUser(models.Model):
     title = models.CharField('Title', max_length=120)
-    owner = models.ForeignKey(AdvUser, on_delete=models.CASCADE, related_name='owner')
+    owner = models.ForeignKey(
+        AdvUser, on_delete=models.CASCADE, related_name='owner')
     product_user = models.ManyToManyField(Product)
     is_hidden = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'wishlistuser'
+        verbose_name_plural = 'wishlistusers'

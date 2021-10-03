@@ -49,11 +49,9 @@ class DeleteUserView(DeleteView):
     template_name = 'accounts/delete_user.html'
     success_url = reverse_lazy('main:index')
 
-
     def dispatch(self, request, *args, **kwargs):
         self.user_id = request.user.pk
         return super().dispatch(request, *args, **kwargs)
-
 
     def post(self, request, *args, **kwargs):
         logout(request)
