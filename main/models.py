@@ -30,5 +30,5 @@ class WishListUser(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'wishlistuser'
-        verbose_name_plural = 'wishlistusers'
+        verbose_name = 'Бажання користувача'
+        verbose_name_plural = 'Бажання користувачів'
